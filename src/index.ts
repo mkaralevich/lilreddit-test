@@ -1,6 +1,7 @@
 import "reflect-metadata";
-import { PostResolver } from "./resolvers/post";
 import { HelloResolver } from "./resolvers/hello";
+import { PostResolver } from "./resolvers/post";
+import { UserResolver } from './resolvers/user';
 import { MikroORM } from "@mikro-orm/core";
 import microConfig from "./mikro-orm.config";
 import express from "express";
@@ -19,7 +20,7 @@ const main = async () => {
 	// set up schema for apollo (?)
 	const apolloServer = new ApolloServer({
 		schema: await buildSchema({
-			resolvers: [HelloResolver, PostResolver],
+			resolvers: [HelloResolver, PostResolver, UserResolver],
 			validate: false,
 		}),
 		// special object that is accessible by all resolvers.

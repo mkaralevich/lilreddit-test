@@ -1,6 +1,8 @@
 import { __prod__ } from "./constants";
+import { User } from './entities/User';
 import { Post } from "./entities/Post";
 import { MikroORM } from "@mikro-orm/core";
+import { POSTGRES_USER, POSTGRES_PASSWORD } from "./constants";
 import path from "path";
 
 export default {
@@ -8,9 +10,9 @@ export default {
 		path: path.join(__dirname, "./migrations"),
 		pattern: /^[\w-]+\d+\.[tj]s$/,
 	},
-	entities: [Post],
-	user: "postgres",
-	password: "i4aNOm&POnek",
+	entities: [Post, User],
+	user: POSTGRES_USER,
+	password: POSTGRES_PASSWORD,
 	dbName: "lilreddit",
 	type: "postgresql",
 	debug: !__prod__,

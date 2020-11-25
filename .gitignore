@@ -22,7 +22,11 @@ todo
 # debug
 npm-debug.log*
 
+# constants
+/src/constants.ts
+
 # local env files
+env.js
 .env.local
 .env.development.local
 .env.test.local
