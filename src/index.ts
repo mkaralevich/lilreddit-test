@@ -1,4 +1,3 @@
-import { Post } from './entities/Post';
 import "reflect-metadata";
 import { PostResolver } from "./resolvers/post";
 import { HelloResolver } from "./resolvers/hello";
