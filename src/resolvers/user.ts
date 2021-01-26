@@ -11,6 +11,14 @@ import {
 } from "type-graphql";
 import argon2 from "argon2";
 
+/*
+	@InputType, @ObjectType are used to convert
+	the class into type for type-graphql.
+
+	@Field exposes the field to schema.
+	Remove it to hide from schema.
+*/
+
 // InputType is used for arguments
 @InputType()
 class UsernamePasswordInput {
@@ -95,7 +103,7 @@ export class UserResolver {
 	@Mutation(() => UserResponse)
 	async login(
 		@Arg("options") options: UsernamePasswordInput,
-		@Ctx() { em }: MyContext
+		@Ctx() { em, req }: MyContext
 	): Promise<UserResponse> {
 		const user = await em.findOne(User, {
 			username: options.username.toLowerCase(),
@@ -121,6 +129,8 @@ export class UserResolver {
 				],
 			};
 		}
+
+		req.session!.userId = user.id;
 		return { user };
 	}
 }
