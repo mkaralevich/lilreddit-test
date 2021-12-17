@@ -1,6 +1,6 @@
 ### LilReddit
 
-Postgres, Mikro-ORM, Express, Apollo Server, TypeGraphQL
+Postgres, Mikro-ORM, Express, Apollo Server, TypeGraphQL.
 
 ```bash
 $ yarn install
